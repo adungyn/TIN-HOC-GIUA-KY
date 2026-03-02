@@ -1,0 +1,374 @@
+/* --- BIẾN MÀU SẮC (THEME) --- */
+:root {
+    --primary-red: #a31d37;  /* Đỏ rượu Soko */
+    --soft-pink: #fdf0f2;    /* Hồng nền nhạt */
+    --accent-orange: #f36f21;/* Cam điểm nhấn */
+    --text-dark: #333;
+    --white: #ffffff;
+}
+
+/* --- RESET & BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; }
+ul { list-style: none; }
+
+/* --- 1. HEADER & NAVBAR (ĐÃ CHỈNH SỬA THÀNH THANH NGANG) --- */
+header {
+    position: fixed; /* Cố định trên cùng */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.95); /* Nền trắng mờ */
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05); /* Bóng đổ nhẹ */
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--primary-red);
+    letter-spacing: 1px;
+}
+
+/* Menu ngang */
+.navbar {
+    height: 100%;
+}
+
+.nav-links {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 30px; /* Khoảng cách giữa các mục menu */
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: 0.3s;
+    padding: 10px 0;
+}
+
+/* Hiệu ứng hover menu: Đổi màu & gạch chân */
+.nav-links a:hover {
+    color: var(--primary-red);
+}
+
+.nav-links a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--primary-red);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%; /* Gạch chân chạy ra khi hover */
+}
+
+/* --- 2. HERO SECTION --- */
+.hero {
+    height: 100vh;
+    background-color: var(--soft-pink);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    margin-top: 0; /* Header fixed đè lên nên không cần margin */
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: var(--primary-red);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    padding: 15px 40px;
+    background: var(--primary-red);
+    color: var(--white);
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.cta-btn:hover { background: #801328; }
+
+/* --- 3. SHOWCASE (FLOATING) --- */
+.showcase {
+    padding: 80px 10%;
+    background: white;
+}
+.showcase-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.mochi-float-box { text-align: center; }
+.mochi-img-wrapper {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--soft-pink);
+}
+.mochi-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.mochi-float-box h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-red);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+/* Animation Bay Bay */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-25px); }
+}
+.float-anim-1 { animation: float 4s ease-in-out infinite; }
+.float-anim-2 { animation: float 5s ease-in-out infinite; animation-delay: 1s; }
+
+/* --- 4. FEATURES SECTION --- */
+.features {
+    padding: 80px 10%;
+    background-color: var(--soft-pink);
+    text-align: center;
+}
+.section-title h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-red);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+.title-underline {
+    width: 80px;
+    height: 3px;
+    background: var(--primary-red);
+    margin: 0 auto 50px;
+}
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+.feature-item {
+    background: var(--white);
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+.feature-item:hover { transform: translateY(-10px); }
+.feature-item .icon { font-size: 3rem; margin-bottom: 15px; }
+.feature-item h4 { color: var(--primary-red); margin-bottom: 10px; }
+
+/* --- 5. PRODUCTS SECTION (ĐÃ CHỈNH ẢNH TO HƠN) --- */
+.products {
+    padding: 80px 5%; /* Giảm lề 2 bên chút để grid rộng ra */
+    background: var(--white);
+    text-align: center;
+}
+
+.products-grid {
+    display: grid;
+    /* Giữ nguyên 4 cột nhưng giãn cách hợp lý hơn */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 40px; /* Tăng khoảng cách giữa các bánh cho thoáng */
+}
+
+.product-card {
+    background: var(--white);
+    border: 1px solid #eee;
+    border-radius: 15px; /* Bo tròn mềm mại hơn */
+    padding: 20px;
+    transition: all 0.4s ease;
+    height: 100%; /* Đảm bảo các thẻ bằng nhau */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card:hover {
+    transform: translateY(-10px); /* Bay lên nhẹ khi hover */
+    box-shadow: 0 20px 40px rgba(163, 29, 55, 0.15);
+    border-color: #fdf0f2;
+}
+
+/* --- PHẦN HÌNH ẢNH TO BỰ --- */
+.p-image {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    width: 100%;
+    /* Tăng chiều cao khung ảnh lên để hình to hơn */
+    height: 320px; 
+}
+
+.p-image img {
+    width: 100%;
+    height: 100%;
+    /* Quan trọng: cover giúp ảnh full khung mà không bị méo */
+    object-fit: cover; 
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Hiệu ứng zoom mượt mà khi di chuột */
+.product-card:hover .p-image img {
+    transform: scale(1.15);
+}
+
+/* Nhãn HOT/NEW cũng chỉnh to lên xíu cho cân đối */
+.badge-hot, .badge-new {
+    position: absolute;
+    top: 15px; left: 15px;
+    padding: 6px 14px;
+    color: white; 
+    font-size: 0.8rem; 
+    font-weight: bold; 
+    border-radius: 6px;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.badge-hot { background: #ff4757; }
+.badge-new { background: #2ed573; }
+
+/* --- PHẦN THÔNG TIN --- */
+.product-card h4 {
+    font-family: 'Playfair Display', serif; /* Dùng font có chân cho sang */
+    font-weight: 700;
+    font-size: 1.3rem; /* Tên bánh to hơn */
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.price {
+    color: var(--primary-red);
+    font-weight: 900;
+    font-size: 1.4rem; /* Giá tiền to, rõ ràng */
+    margin-bottom: 20px;
+}
+
+.btn-cart {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid var(--primary-red); /* Viền dày hơn xíu */
+    background: white;
+    color: var(--primary-red);
+    border-radius: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.btn-cart:hover {
+    background: var(--primary-red);
+    color: white;
+    box-shadow: 0 5px 15px rgba(163, 29, 55, 0.3);
+}
+
+/* --- RESPONSIVE (QUAN TRỌNG VÌ ẢNH TO) --- */
+@media (max-width: 1200px) {
+    .products-grid { grid-template-columns: repeat(3, 1fr); } /* Màn hình vừa: 3 cột */
+    .p-image { height: 280px; }
+}
+
+@media (max-width: 900px) {
+    .products-grid { grid-template-columns: repeat(2, 1fr); } /* Máy tính bảng: 2 cột */
+    .p-image { height: 300px; } /* Ảnh vẫn to rõ */
+}
+
+@media (max-width: 600px) {
+    .products-grid { grid-template-columns: 1fr; } /* Điện thoại: 1 cột */
+    .p-image { height: 350px; } /* Trên đt ảnh cực to */
+}
+
+
+/* --- 6. FOOTER --- */
+footer {
+    background: var(--primary-red);
+    color: var(--white);
+    padding: 60px 5% 20px;
+}
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.footer-brand h2 { font-family: 'Playfair Display', serif; font-size: 3rem; }
+.footer-info h4, .footer-contact h4, .footer-social h4 {
+    font-size: 1rem; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.3); display: inline-block; padding-bottom: 5px;
+}
+.footer-info p, .footer-contact p, .footer-social p { font-size: 0.9rem; margin-bottom: 10px; opacity: 0.9; }
+.footer-copyright {
+    margin-top: 50px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    text-transform: uppercase;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .features-grid, .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-container { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+    .header-content { flex-direction: column; gap: 10px; height: auto; padding: 15px; }
+    .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
+    .hero h1 { font-size: 2.5rem; }
+    .showcase-container { grid-template-columns: 1fr; }
+    .features-grid, .products-grid { grid-template-columns: 1fr; }
+    .footer-container { grid-template-columns: 1fr; text-align: center; }
+}
